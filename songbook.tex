@@ -37,20 +37,50 @@
 \settowidth{\versenumwidth}{1.\ }
 \pagestyle{empty}
 
+\newcommand{\songlink}[2]{\hyperlink{#1}{#2}}
+
 \newindex{titleidx}{cbtitle}
-% \newauthorindex{authidx}{cbauth}
+\newauthorindex{authidx}{cbauth}
 % \newscripindex{scripidx}{cbscrip}
+
+%\renewcommand{\lyricfont}{\sffamily}
+\renewcommand{\printchord}[1]{\rmfamily\bf#1}
+\songcolumns{1}
+
+\renewcommand{\clineparams}{
+  \baselineskip=10pt
+  \lineskiplimit=1pt
+  \lineskip=1pt
+}
+
+\nosongnumbers
+
+%\renewcommand{\stitlefont}{
+%\rmfamily\Large\baselineskip=20pt\lineskiplimit=0pt\lineskip=1pt
+%}
+
+\renewcommand{\extendprelude}{
+  {\small\it\showauthors\par}
+}
+
+\renewcommand\makeprelude{%
+  \resettitles
+  \setlength{\parskip}{5pt}
+  {\Large\songtitle\par
+   \nexttitle\foreachtitle{(\songtitle)\par}}%
+  \extendprelude
+}
 
 \begin{document}
 
 \showindex{Complete Index of Songs}{titleidx}
+\showindex{Index of Authors}{authidx}
 
-\begin{songs}{titleidx}
+\begin{songs}{titleidx,authidx}
 % \begin{songs}{titleidx,authidx,scripidx}
 \input{songs.tex}
 \end{songs}
 
-% \showindex{Index of Authors and Composers}{authidx}
 % \showindex{Index of Scripture}{scripidx}
 
 \end{document}
