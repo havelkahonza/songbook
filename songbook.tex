@@ -37,7 +37,7 @@
 \settowidth{\versenumwidth}{1.\ }
 \pagestyle{empty}
 
-\newcommand{\songlink}[2]{\hyperlink{#1}{#2}}
+%\newcommand{\songlink}[2]{\hyperlink{#1}{#2}}
 
 \newindex{titleidx}{cbtitle}
 \newauthorindex{authidx}{cbauth}
@@ -72,8 +72,9 @@
 }
 
 \begin{document}
+\paragraph*{Songbook} \label{beg}
 
-\showindex{Complete Index of Songs}{titleidx}
+\showindex{Complete Index of Songs}{titleidx} 
 \showindex{Index of Authors}{authidx}
 
 \begin{songs}{titleidx,authidx}
